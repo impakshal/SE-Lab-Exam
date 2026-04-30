@@ -32,13 +32,38 @@
 
 ---
 
-## 📋 Black Box Execution Output
+## 🔍 White Box Testing
 
-```text
-===== DETAILED TEST EXECUTION =====
-TC01 → PASS
-TC02 → PASS
-...
-TC15 → PASS
+---
 
-TOTAL PASSED: 15/15
+## 🔹 1. Independent Paths
+
+| Path | Description |
+|------|------------|
+| P1 | Invalid member |
+| P2 | Invalid trainer |
+| P3 | Past date |
+| P4 | Date beyond limit |
+| P5 | Invalid time |
+| P6 | Booking limit exceeded |
+| P7 | Slot unavailable |
+| P8 | Successful booking |
+
+---
+
+## 🔹 2. White Box Test Cases
+
+| TC ID | Path | Scenario | Input | Expected Output | Result |
+|------|------|---------|------|----------------|--------|
+| WTC01 | P1 | Invalid member | Member=999 | Error | Pass |
+| WTC02 | P2 | Invalid trainer | Trainer=999 | Error | Pass |
+| WTC03 | P3 | Past date | Date < today | Reject | Pass |
+| WTC04 | P4 | Date > limit | Date > 30 | Reject | Pass |
+| WTC05 | P5 | Invalid time | Time=5/23 | Error | Pass |
+| WTC06 | P6 | Limit exceeded | Count ≥3 | Blocked | Pass |
+| WTC07 | P7 | Slot booked | Already booked | Retry | Pass |
+| WTC08 | P8 | Valid booking | All valid | Success | Pass |
+
+✅ **All 8 Paths Covered**
+
+---
